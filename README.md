@@ -2,8 +2,12 @@
 
 
 ## Team
-Name: | Bitmoji: | Role: | Team: 
------------- | -------------
-Content cell 1 | Content cell 2 | Content cell 3 | Content cell 4
-Content column 1 | Content column 2 | Content cell 3 | Content cell 4
+Name | Bitmoji | Role | Team
+------------ | ------------- | ------------- | -------------
+Jay Park| ![](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png) | Software Engineer | Jetson
+Corey McMillan | ![](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png) | Software Engineer | Jetson
+Jenny Haynes | ![](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png) | Software Engineer | MBM
+Sam Crochet | ![](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png) | Software Engineer Intern | WildFhir
+
+
  
