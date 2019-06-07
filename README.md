@@ -1,7 +1,8 @@
 # hackathon
 
-
 ## Team
+This team participated in the 2017 Summer Internship for Optum (`NC021`) and have stayed connected since! As a group, we are continuining trying to learn and leverage fun technologies to do our life's best work.
+
 Name | Bitmoji | Role | Team
 ------------ | ------------- | ------------- | -------------
 Jay Park| <img style = "text-align: center" src="https://github.optum.com/PeanutButterers/hackathon/blob/master/assets/images/bitmoji/jay.png" width="200" height="200">| Software Engineer | Jetson
