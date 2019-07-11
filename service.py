@@ -1,7 +1,7 @@
 import json
 import operator
 import requests
-from watson_developer_cloud import VisualRecognitionV3
+from ibm_watson import VisualRecognitionV3 , ApiException
 from credentials.food2fork import * 
 from credentials.watson import * 
 
@@ -10,7 +10,7 @@ from credentials.watson import *
 # irrelevent classifiers
 # ----------------------------------------------
 def scrubKeywords(results): 
-    badWords = set(['fruit', 'vegetable', 'food', 'accessory fruit', 'Delicious'])
+    badWords = set(['fruit', 'vegetable', 'food', 'accessory fruit', 'Delicious', 'root vegetable'])
     results = sorted(results,reverse=True, key = lambda i: i['score'])
     words = []
     for i in results: 
@@ -22,13 +22,25 @@ def scrubKeywords(results):
 # takes in a image url and returns a scrubbed and sorted
 # list of image classifiers
 # ----------------------------------------------
-def findClassifiers(image_url): 
+def findClassifiers(image_pathname): 
     visual_recognition = VisualRecognitionV3('2018-03-19',iam_apikey= key)
 
-    url = image_url
-    classifier_ids = ["food"]
+    url = image_pathname
 
-    classes_result = visual_recognition.classify(url=url,classifier_ids=classifier_ids).get_result()
+    classifier_ids = ["food"]
+    classes_result = dict()
+    
+    try: 
+        # classes_result = visual_recognition.classify(url=url,classifier_ids=classifier_ids).get_result()
+        with open(image_pathname, 'rb') as images_file:
+            classes_result = visual_recognition.classify(
+                images_file,
+                threshold='0.6',
+                classifier_ids=classifier_ids).get_result()
+            print(classes_result)
+    except ApiException as ex:
+        print("Method failed with status code " + str(ex.code) + ": " + ex.message)
+        return False
 
     results = []
     for i in classes_result["images"][0]["classifiers"][0]["classes"]: 
@@ -43,3 +55,4 @@ def searchRecipes(keyword):
     url_string = "https://www.food2fork.com/api/search?key={}&q={}".format(api_key,keyword)
     r = requests.get(url_string)
     return r.json()
+
