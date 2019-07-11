@@ -56,7 +56,17 @@ def f2fsearchRecipes(keyword):
     r = requests.get(url_string)
     return r.json()
 
-def edemamSearchRecipes(keyword): 
-    url_string = "https://api.edamam.com/search?q={}&app_id={}&app_key={}&diet={}".format(keyword, edamam.api_id, edamam.api_key,"balanced")
+def edemamSearchRecipes(keyword_list): 
+    if len(keyword_list) == 0: 
+        return False
+    
+    query = ""
+    for i in range(0,len(keyword_list),1):
+        if i == len(keyword_list) - 1: 
+            query = query + keyword_list[i]
+        else: 
+            query = query + keyword_list[i] + " and "
+
+    url_string = "https://api.edamam.com/search?q={}&app_id={}&app_key={}&diet={}".format(query, edamam.api_id, edamam.api_key,"balanced")
     r = requests.get(url_string)
     return r.json()
