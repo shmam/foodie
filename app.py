@@ -1,8 +1,12 @@
 import json
 from flask import Flask, request, Response
+from flask_cors import CORS, cross_origin
 from service import * 
 
 app = Flask(__name__)
+# Allows for cross origion requests
+app.config['CORS_HEADERS'] = 'Content-Type'
+cors = CORS(app, resources={r"*": {"origins":"*"}})
 baseurl = '/foodie/api/'
 
 # 
