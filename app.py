@@ -26,7 +26,7 @@ def hello():
     if not keywords: 
         return Response("IBM watson exception :(", status=500, mimetype='application/json')
     else: 
-        recipes = searchRecipes(keywords[0])
+        recipes = edemamSearchRecipes(keywords[0])
         return Response(json.dumps(recipes), status=200, mimetype='application/json')
 
 

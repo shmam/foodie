@@ -2,8 +2,9 @@ import json
 import operator
 import requests
 from ibm_watson import VisualRecognitionV3 , ApiException
-from credentials.food2fork import * 
-from credentials.watson import * 
+from credentials import food2fork 
+from credentials import watson
+from credentials import edamam
 
 
 # Takes in a ibm watson dict and scrubs it for 
@@ -23,7 +24,7 @@ def scrubKeywords(results):
 # list of image classifiers
 # ----------------------------------------------
 def findClassifiers(image_pathname): 
-    visual_recognition = VisualRecognitionV3('2018-03-19',iam_apikey= key)
+    visual_recognition = VisualRecognitionV3('2018-03-19',iam_apikey= watson.key)
 
     url = image_pathname
 
@@ -50,9 +51,12 @@ def findClassifiers(image_pathname):
     
     return results
 
-def searchRecipes(keyword): 
-    recipelist = []
-    url_string = "https://www.food2fork.com/api/search?key={}&q={}".format(api_key,keyword)
+def f2fsearchRecipes(keyword): 
+    url_string = "https://www.food2fork.com/api/search?key={}&q={}".format(food2fork.api_key,keyword)
     r = requests.get(url_string)
     return r.json()
 
+def edemamSearchRecipes(keyword): 
+    url_string = "https://api.edamam.com/search?q={}&app_id={}&app_key={}&diet={}".format(keyword, edamam.api_id, edamam.api_key,"balanced")
+    r = requests.get(url_string)
+    return r.json()
