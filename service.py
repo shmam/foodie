@@ -1,6 +1,7 @@
 import json
 import operator
 import requests
+import time
 from ibm_watson import VisualRecognitionV3 , ApiException
 from credentials import food2fork 
 from credentials import watson
@@ -11,7 +12,7 @@ from credentials import edamam
 # irrelevent classifiers
 # ----------------------------------------------
 def scrubKeywords(results): 
-    badWords = set(['fruit', 'vegetable', 'food', 'accessory fruit', 'Delicious', 'root vegetable'])
+    badWords = set(['fruit', 'vegetable', 'food', 'accessory fruit', 'Delicious', 'root vegetable', 'citrus'])
     results = sorted(results,reverse=True, key = lambda i: i['score'])
     words = []
     for i in results: 
@@ -26,14 +27,15 @@ def scrubKeywords(results):
 def findClassifiers(image_pathname): 
     visual_recognition = VisualRecognitionV3('2018-03-19',iam_apikey= watson.key)
 
-    url = image_pathname
+    base = '/Users/scrochet/Downloads/'
+    url = str(base + image_pathname)
 
     classifier_ids = ["food"]
     classes_result = dict()
-    
+    time.sleep(.5)
     try: 
         # classes_result = visual_recognition.classify(url=url,classifier_ids=classifier_ids).get_result()
-        with open(image_pathname, 'rb') as images_file:
+        with open(("{}".format(url)), 'rb') as images_file:
             classes_result = visual_recognition.classify(
                 images_file,
                 threshold='0.6',
@@ -62,8 +64,10 @@ def edemamSearchRecipes(keyword_list):
     
     query = ""
     for i in range(0,len(keyword_list),1):
+        # if this is the last keyword in the list
         if i == len(keyword_list) - 1: 
             query = query + keyword_list[i]
+        
         else: 
             query = query + keyword_list[i] + " and "
 

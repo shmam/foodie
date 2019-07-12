@@ -42,10 +42,10 @@ def makerecipe():
 # 
 # BODY: 
 # {
-#   "img": <image pathname>
+#   "ingredients": []
 # }
 # ----------------------------------------------------
-# POST /foodie/api/recipes/manual?query=<WORD>
+# POST /foodie/api/recipes/
 @app.route(baseurl + 'recipes', methods=['POST'])
 def manualrecipe(): 
 
