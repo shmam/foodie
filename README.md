@@ -1,7 +1,7 @@
 <img src="./assets/images/pb_logo.png" width="200" />
 
 # Foodie 
-helping you live a healthier life
+> helping you live a healthier life
 
 ### Product
 Foodie is a hackathon project built to tackle malnutrition in urbanized areas and food deserts. We have built out a full stack product that uses image recognition and classification to scan vegetables and groceries, automatically search healthy and affortable recipes that include these foods as ingredients. The goal of this product is to make it easy for users to search out new and healthy meals. 
