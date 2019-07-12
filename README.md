@@ -1,5 +1,6 @@
+<img src="./assets/images/pb_logo.png" width="200" />
 
-# Foodie ![PB Logo](./assets/images/pb_logo.png)
+# Foodie 
 > helping you live a healthier life
 
 ## Team
