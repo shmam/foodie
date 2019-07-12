@@ -1,0 +1,4 @@
+*.pyc
+__pycache__
+credentials
+foodie-ui/node_modules
