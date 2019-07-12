@@ -56,7 +56,7 @@ def manualrecipe():
     return_json = edemamSearchRecipes(keywords["ingredients"])
     
     if not return_json: 
-        return Response("No ingredients :(", status=500, mimetype='application/json')
+        return Response("No ingredients :(", status=404, mimetype='application/json')
     else: 
         return Response(json.dumps(return_json), status=200, mimetype='application/json')
 
