@@ -1,5 +1,5 @@
-![PB Logo](./assets/images/pb_logo.png)
-# Foodie
+
+# Foodie ![PB Logo](./assets/images/pb_logo.png)
 > helping you live a healthier life
 
 ## Team
