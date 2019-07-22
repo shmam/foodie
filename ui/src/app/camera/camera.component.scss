@@ -1,0 +1,33 @@
+body {
+    background-color: #F0F0F0;
+}
+
+#captureDiv {
+    display: inline-block;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+    width: 53%;
+}
+
+#savedDiv{
+    display: inline-block;
+    width: 45%;
+    max-height: 55vh;
+}
+
+#content{
+    width: 100%;
+    max-height: 55vh;
+    overflow-y: scroll;
+}
+#video {
+    background-color: #000000;
+}
+#canvas {
+    display: none;
+}
+li {
+    display: inline;
+    padding: 5px;
+}

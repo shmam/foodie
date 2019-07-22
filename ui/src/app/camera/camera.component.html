@@ -1,0 +1,31 @@
+<div id="captureDiv">
+  <div><video #video id="video" width="640" height="480" autoplay></video></div>
+  <div><button mat-raised-button color="primary" id="snap" (click)="capture()">Snap Ingredient</button></div>
+  <canvas #canvas id="canvas" width="640" height="480"></canvas>
+
+</div>
+<div id = "savedDiv">
+  <div id = "content">
+      <mat-card>
+        <div id = "headerCard" style = "position: absolute;">
+            <span style = "font-size: 20px; font-weight: bolder; text-align: center; ">Ingredients:</span>
+            <br>
+            <span>Please snapshot a fruit/vegetable!</span>
+        </div>
+        <br>
+              <ul>
+                  <li *ngFor="let c of captures">
+                    <div id = "card">
+                      <mat-card>
+                          <mat-card-subtitle>{{c.name}}</mat-card-subtitle>
+                          <img style = "display: inline-block;" src="{{ c.dataURL }}" height="100"/>
+                      </mat-card>
+                    </div>
+                      <br>
+                  </li>
+              </ul>
+      </mat-card><br>
+  </div>
+<button mat-raised-button matStepperNext color="primary" id="snap" (click)="recipe()">Send List</button>
+</div>
+

@@ -1,0 +1,14 @@
+<mat-horizontal-stepper (selectionChange) = "changeThis()">
+  <mat-step label="Snap Ingredients">
+    <camera></camera>
+  </mat-step>
+  <mat-step label="Results">
+    <strong style = "margin-left: 7%;">Results: </strong> {{hits.length}} recipes were found.
+      <mat-spinner id = "spinner"></mat-spinner><br>
+    <div id = "content">
+      <div id = "listOfRecipes" *ngFor = "let results of hits">
+        <fancy-card [ingredients] = "results.recipe.ingredientLines" [link] = "results.recipe.url" [calories] = "results.recipe.calories" [imgSrc] = " results.recipe.image" [labelName] = "results.recipe.label" class = "cards"></fancy-card>
+      </div>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

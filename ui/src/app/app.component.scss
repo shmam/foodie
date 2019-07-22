@@ -1,0 +1,80 @@
+body{
+    width: 100%;
+    height: 100%;
+}
+
+h2{
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    letter-spacing: 2px;
+}
+
+h2:hover{
+    color: #a6bfcc;
+    transition: 0.2s;
+}
+
+#header{
+    display: flex;
+    width: 100%;
+    height: 20%;
+    border-bottom: 2px solid #d3d3d3;
+    box-shadow: 0 4px 8px 0 rgba(0.4,0,0,0.05); 
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-color: #4b636e;
+    justify-content: space-between;
+}
+
+.logos
+{
+    display: inline-block;
+}
+
+#optum{
+    display: inline-block;
+    width: 5%;
+    padding: 0;
+    margin: 0;
+    margin-left: 2%;
+}
+
+#optum:hover, #optum:focus{
+    cursor: pointer;
+    outline: none;
+}
+
+#logosAndTitles{
+    display: inline-block;
+    width: 15%;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a 
+{
+    color: #f2f2f2;
+    letter-spacing: 1px;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 95%;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover 
+{
+    text-decoration: underline;
+    text-decoration-color: #E87722;
+}
+
+
+
+.icons{
+    display: inline-block;
+}
+
+#nav{
+    width: 13%;
+    display: inline-block;
+}
